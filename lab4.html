@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title </title>
+    <script>
+       /* function muestraOpcion(){
+           var opciones = document.getElementsByName("eleccion");
+           console.log(opciones);
+           for (let i = 0; i < opciones.length; i++){
+               if (opciones[i].checked){
+                   alert(opciones[i].value)
+               }
+           }
+        }*/
+       function cotizar(){
+           var monto = parseFloat(document.getElementById("monto").value);
+           var de = document.getElementById("de").value;
+           var a = document.getElementById("a").value;
+           let dolar = 3.71;
+           let euro = 4.04;
+           resultado = 0;
+           //Soles a dolares
+           if(de==1&&a==2){
+               resultado=monto/dolar;
+           }
+           //Soles a euros
+           else if(de==1&&a==3){
+             resultado = monto /euro;
+           }
+            //Dolar a soles
+            else if(de==2&&a==1){
+             resultado = monto*dolar;
+           }
+           //Dolar a euro
+           else if(de==2&&a==3){
+             resultado = monto/euro;
+           }
+           //Euro a soles
+           else if(de==3&&a==1){
+             resultado = monto*euro;
+           }
+           //Euro a dolar
+           else if(de==3&&a==2){
+             resultado = monto*(euro/dolar);
+           }//misma moneda
+           else{
+               resultado=monto
+           }
+           
+           alert("El resultado es "+ resultado)
+           
+       }
+    </script>
+</head>
+<body style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;
+    background-color: grey  ; min-width: auto">
+    <div  style=" background-color: #fff; margin: 50px; border: 1px solid black; ">
+    <h3>CASA DE CAMBIO</h3>
+    <form action="">
+        <p><label for="">Monto</label> <input type="text" id="monto"></p>
+        <p>Convertir de:</p>
+        <select id="de">
+            <option value="1">Sol</option>
+            <option value="2">Dolar</option>
+            <option value="3">Euro</option>
+        </select>
+        <p>Convertir a:</p>
+        <select id="a">
+            <option value="1">Sol</option>
+            <option value="2">Dolar</option>
+            <option value="3">Euro</option>
+        </select>
+        <br>
+        <br>
+        <button  type="button" onclick="cotizar()" style=" background-color: rgb(50, 95, 232); color: white ;">Cotizar</button>
+        <br>
+        <br>
+    </form>
+    </div>
+</body>
+</html>
